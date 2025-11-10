@@ -15,7 +15,7 @@ class AuthController extends Controller
      */
     public function showRegister()
     {
-        return view('layout.register');
+        return redirect('/')->with('open_register', true);
     }
 
     /**
@@ -39,7 +39,7 @@ class AuthController extends Controller
         // Log the user in
         Auth::login($user);
 
-    return redirect('/dashboard')->with('success', 'Account created successfully!');
+        return redirect('/dashboard')->with('success', 'Account created successfully!');
     }
 
     /**
@@ -47,7 +47,7 @@ class AuthController extends Controller
      */
     public function showLogin()
     {
-        return view('layout.login');
+        return redirect('/')->with('open_login', true);
     }
 
     /**
@@ -66,9 +66,9 @@ class AuthController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        return back()->withErrors([
+        return redirect('/')->withErrors([
             'username' => 'The provided credentials do not match our records.',
-        ])->onlyInput('username');
+        ])->with('open_login', true)->withInput();
     }
 
     /**
