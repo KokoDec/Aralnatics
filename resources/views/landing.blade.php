@@ -81,7 +81,7 @@
                 <div class="space-y-4">
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-['Jaro',sans-serif] leading-tight">
                         <span class="text-orange-500">Welcome to</span><br>
-                        <span class="gradient-text">ARALYTICS</span>
+                        <span class="gradient-text">ARALNATICS</span>
                     </h1>
                     <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl">
                         Start your learning journey with personalized flashcards, smart quizzes, and progress tracking.
