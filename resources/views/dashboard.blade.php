@@ -109,14 +109,14 @@
                 <span>Dashboard</span>
             </a>
 
-            <!-- Create Quiz -->
-            <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 font-medium">
+            <!-- My Quizzes -->
+            <a href="/quizzes" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 font-medium">
                 <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                     <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
-                <span>Create Quiz</span>
+                <span>My Quizzes</span>
             </a>
 
             <!-- Take Quiz -->
@@ -357,7 +357,7 @@
 
             <!-- Action Buttons -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <a href="#" class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+                <a href="/create-quiz" class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105">
                     <div class="flex items-center space-x-4">
                         <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
