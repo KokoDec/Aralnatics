@@ -39,14 +39,6 @@
         .mobile-sidebar.open {
             transform: translateX(0);
         }
-        .quiz-type-btn {
-            transition: all 0.3s ease;
-        }
-        .quiz-type-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: #667eea;
-        }
         .question-item {
             transition: all 0.3s ease;
         }
@@ -64,65 +56,7 @@
     </button>
 
     <!-- Sidebar -->
-    <div id="sidebar" class="mobile-sidebar lg:translate-x-0 fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-xl border-r border-gray-200">
-        <!-- Logo Section -->
-        <div class="flex items-center space-x-3 p-6 border-b border-gray-200">
-            <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-            </div>
-            <div>
-                <h1 class="text-2xl font-bold gradient-text font-['Jaro',sans-serif]">ARALNATICS</h1>
-                <p class="text-xs text-gray-500">Learning Platform</p>
-            </div>
-        </div>
-
-        <!-- Navigation Menu -->
-        <nav class="flex-1 px-4 py-6 space-y-2">
-            <a href="/dashboard" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 font-medium">
-                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                </div>
-                <span>Dashboard</span>
-            </a>
-
-            <a href="/quizzes" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 font-medium">
-                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                </div>
-                <span>Quizzes</span>
-            </a>
-
-            <a href="/create-quiz" class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 font-medium">
-                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                    </svg>
-                </div>
-                <span>Create Quiz</span>
-            </a>
-        </nav>
-
-        <!-- Sign Out Button -->
-        <div class="p-4 border-t border-gray-200">
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 font-medium transition-colors">
-                    <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
-                        <svg class="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                        </svg>
-                    </div>
-                    <span>Sign Out</span>
-                </button>
-            </form>
-        </div>
-    </div>
+    @include('layout.sidebar', ['active' => 'create-quiz'])
 
     <!-- Mobile Overlay -->
     <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
@@ -145,16 +79,15 @@
                         <!-- Quiz Type Section -->
                         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                             <h2 class="text-lg font-semibold text-gray-900 mb-4">Quiz Type</h2>
-                            <div class="flex flex-wrap gap-3">
-                                <button type="button" class="quiz-type-btn active px-6 py-3 border-2 border-gray-300 rounded-full font-medium text-gray-700 hover:border-indigo-500" data-type="multiple-choice">
-                                    <span>Multiple Choice</span>
-                                </button>
-                                <button type="button" class="quiz-type-btn px-6 py-3 border-2 border-gray-300 rounded-full font-medium text-gray-700 hover:border-indigo-500" data-type="essay">
-                                    <span>Essay</span>
-                                </button>
-                                <button type="button" class="quiz-type-btn px-6 py-3 border-2 border-gray-300 rounded-full font-medium text-gray-700 hover:border-indigo-500" data-type="true-false">
-                                    <span>True/False</span>
-                                </button>
+                            <div class="relative">
+                                <select name="quiz_type" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent appearance-none bg-white">
+                                    <option value="multiple-choice">Multiple Choice</option>
+                                    <option value="true-false">True/False</option>
+                                    <option value="identification">Identification</option>
+                                </select>
+                                <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
                             </div>
                         </div>
 
@@ -337,14 +270,6 @@
             });
         }
 
-        // Quiz Type Buttons
-        const quizTypeBtns = document.querySelectorAll('.quiz-type-btn');
-        quizTypeBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                btn.classList.toggle('active');
-            });
-        });
-
         // File Upload
         const uploadFileBtn = document.getElementById('upload-file-btn');
         const fileInput = document.getElementById('file-input');
@@ -452,6 +377,19 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                         </button>
+                    </div>
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Question Type</label>
+                        <div class="relative">
+                            <select name="questions[${questionCount}][type]" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent appearance-none bg-white">
+                                <option value="multiple-choice">Multiple Choice</option>
+                                <option value="true-false">True/False</option>
+                                <option value="identification">Identification</option>
+                            </select>
+                            <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
                     </div>
                     <textarea name="questions[${questionCount}][question]" rows="3" 
                               class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-3" 

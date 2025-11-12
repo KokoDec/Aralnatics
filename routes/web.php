@@ -33,6 +33,21 @@ Route::get('/create-quiz', function () {
     return view('createQuiz');
 })->name('quiz.create');
 
+// Flashcards route
+Route::get('/flashcards', function () {
+    return view('flashcards');
+})->name('flashcards.index');
+
+// Statistics route
+Route::get('/statistics', function () {
+    return view('statistics');
+})->name('statistics.index');
+
+// Profile route
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile.show');
+
 Route::post('/quiz', function () {
     // TODO: Handle quiz creation
     // For now, just redirect back with success message
